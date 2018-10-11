@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0782887E-FDD0-46C0-A8E3-7B738F54AECB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmployeeManagment.Domain</RootNamespace>
+    <AssemblyName>EmployeeManagment.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmployeeManagerContext.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Migrations\201810040503514_InitialDatabaseCreationWithEmployees.cs" />
+    <Compile Include="Migrations\201810040503514_InitialDatabaseCreationWithEmployees.Designer.cs">
+      <DependentUpon>201810040503514_InitialDatabaseCreationWithEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810080334316_Attempting to get connection.cs" />
+    <Compile Include="Migrations\201810080334316_Attempting to get connection.Designer.cs">
+      <DependentUpon>201810080334316_Attempting to get connection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810092205296_Attempting to get connection again.cs" />
+    <Compile Include="Migrations\201810092205296_Attempting to get connection again.Designer.cs">
+      <DependentUpon>201810092205296_Attempting to get connection again.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810102159367_update to BirthDate and HireDate.cs" />
+    <Compile Include="Migrations\201810102159367_update to BirthDate and HireDate.Designer.cs">
+      <DependentUpon>201810102159367_update to BirthDate and HireDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810110131085_database is up to date.cs" />
+    <Compile Include="Migrations\201810110131085_database is up to date.Designer.cs">
+      <DependentUpon>201810110131085_database is up to date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810040503514_InitialDatabaseCreationWithEmployees.resx">
+      <DependentUpon>201810040503514_InitialDatabaseCreationWithEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810080334316_Attempting to get connection.resx">
+      <DependentUpon>201810080334316_Attempting to get connection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810092205296_Attempting to get connection again.resx">
+      <DependentUpon>201810092205296_Attempting to get connection again.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810102159367_update to BirthDate and HireDate.resx">
+      <DependentUpon>201810102159367_update to BirthDate and HireDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810110131085_database is up to date.resx">
+      <DependentUpon>201810110131085_database is up to date.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
