@@ -79,5 +79,58 @@ namespace EmployeeManagment.Shared.Orchestrators
 
             return employees;
         }
+
+        public async Task<EmployeeViewModel> SearchEmployee(string searchString)
+        {
+            var employee = await _employeeContext.Employees
+                  .Where(x => x.LastName.StartsWith(searchString))
+                  .FirstOrDefaultAsync();
+
+            if (employee == null)
+            {
+                return new EmployeeViewModel();
+            }
+
+            var viewModel = new EmployeeViewModel
+            {
+                FirstName = employee.FirstName,
+                MiddleName = employee.MiddleName,
+                LastName = employee.LastName,
+                HireDate = employee.HireDate,
+                Department = employee.Department,
+                JobTitle = employee.JobTitle,
+                PayRate = employee.PayRate,
+                //SalaryType = employee.SalaryType,
+                EmployeeId = employee.EmployeeId,
+                AvailableHours = employee.AvailableHours
+            };
+
+            return viewModel;
+        }
+
+        public async Task<bool> UpdateEmployee(EmployeeViewModel employee)
+        {
+            var updateEntity = await _employeeContext.Employees.FindAsync(employee.EmployeeId);
+
+            if(updateEntity == null)
+            {
+                return false;
+            }
+
+            updateEntity.FirstName = employee.FirstName;
+            updateEntity.MiddleName = employee.MiddleName;
+            updateEntity.LastName = employee.LastName;
+            updateEntity.BirthDate = employee.BirthDate;
+            updateEntity.HireDate = employee.HireDate;
+            updateEntity.Department = employee.Department;
+            updateEntity.JobTitle = employee.JobTitle;
+            updateEntity.PayRate = employee.PayRate;
+            //updateEntity.SalaryType = employee.SalaryType;
+            updateEntity.AvailableHours = employee.AvailableHours;
+
+            await _employeeContext.SaveChangesAsync();
+
+            return true;
+        }
     }
 }
