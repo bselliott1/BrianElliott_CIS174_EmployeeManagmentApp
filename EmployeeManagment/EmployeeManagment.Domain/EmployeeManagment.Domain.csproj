@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="EmployeeManagerContext.cs" />
     <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\Error.cs" />
     <Compile Include="Migrations\201810040503514_InitialDatabaseCreationWithEmployees.cs" />
     <Compile Include="Migrations\201810040503514_InitialDatabaseCreationWithEmployees.Designer.cs">
       <DependentUpon>201810040503514_InitialDatabaseCreationWithEmployees.cs</DependentUpon>
@@ -69,6 +70,10 @@
     <Compile Include="Migrations\201810110131085_database is up to date.cs" />
     <Compile Include="Migrations\201810110131085_database is up to date.Designer.cs">
       <DependentUpon>201810110131085_database is up to date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811290408407_database creation with errors.cs" />
+    <Compile Include="Migrations\201811290408407_database creation with errors.Designer.cs">
+      <DependentUpon>201811290408407_database creation with errors.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810110131085_database is up to date.resx">
       <DependentUpon>201810110131085_database is up to date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811290408407_database creation with errors.resx">
+      <DependentUpon>201811290408407_database creation with errors.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

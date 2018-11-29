@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+        <h2>Login</h2>
+        <div id="login-div">
+            @using (Html.BeginForm("Authorize", "HomePage", FormMethod.Post))
+            {
+                <table>
+                    <tr>
+                        <td>Employee Managment App</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.userName)
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.userName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.ValidationMessageFor(Model => Model.userName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.password)
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.password)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.ValidationMessageFor(Model => model.password)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label>@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" name="login" value="Login" />
+                            <input type="reset" name="reset" value="Clear" />
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+        <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+</body>
+</html>

@@ -32,6 +32,7 @@ using System.Web.Mvc;
 
 namespace EmployeeManagment.Controllers
 {
+    [HandleError]
     public class AllEmployeesController : Controller
     {
         private EmployeeOrchestrator _employeeOrchestrator = new EmployeeOrchestrator();

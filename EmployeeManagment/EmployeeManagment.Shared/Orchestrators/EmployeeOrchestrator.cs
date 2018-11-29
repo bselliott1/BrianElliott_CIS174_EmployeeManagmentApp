@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using EmployeeManagment.Domain;
 using EmployeeManagment.Domain.Entities;
 using EmployeeManagment.Shared.Orchestrators.Interfaces;
@@ -131,6 +132,40 @@ namespace EmployeeManagment.Shared.Orchestrators
             await _employeeContext.SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task<SingleEmployeeViewModel> getEmployeeId(string search)
+        {
+            var employee = await _employeeContext.Employees.Where(x => x.EmployeeId.Equals(search)).FirstOrDefaultAsync();
+
+            if (employee == null)
+            {
+                throw new HttpException(404, "Employee Does Not Exist, Try Again.");
+            }
+
+            var viewModel = new SingleEmployeeViewModel
+            {
+                FirstName = employee.FirstName,
+                MiddleName = employee.MiddleName,
+                LastName = employee.LastName,
+                Department = employee.Department,
+                BirthDate = employee.BirthDate,
+            };
+
+            return viewModel;
+
+        }
+        public async Task<List<AllEmployeesViewModel>> GetEmployeeFullName()
+        {
+            var employees = await _employeeContext.Employees.Select(x => new AllEmployeesViewModel
+            {
+                EmployeeId = x.EmployeeId,
+                FirstName = x.FirstName,
+                MiddleName = x.MiddleName,
+                LastName = x.LastName,
+            }).ToListAsync();
+
+            return employees;
         }
     }
 }

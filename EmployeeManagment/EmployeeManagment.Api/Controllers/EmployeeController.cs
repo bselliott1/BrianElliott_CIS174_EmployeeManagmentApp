@@ -23,6 +23,9 @@
 =========================================================== **/
 using System.Web.Http;
 using EmployeeManagment.Shared.Orchestrators;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using EmployeeManagment.Shared.ViewModels;
 
 namespace EmployeeManagment.Api.Controllers
 {
@@ -34,6 +37,31 @@ namespace EmployeeManagment.Api.Controllers
         public EmployeeController()
         {
             _employeeOrchestrator = new EmployeeOrchestrator();
+        }
+
+        public async Task<List<AllEmployeesViewModel>> GetEmployeeFullName()
+        {
+            var employees = await _employeeOrchestrator.GetEmployeeFullName();
+
+            return employees;
+        }
+
+        [AcceptVerbs("Get", "Post")]
+        [HttpGet]
+        [Route("api/v1/getEmployee")]
+        public async Task<SingleEmployeeViewModel> getEmployeeId(string employeeId)
+        {
+            var employee = await _employeeOrchestrator.getEmployeeId(employeeId);
+
+            return employee;
+        }
+
+        [Route("api/v1/getAllEmployees")]
+        public async Task<List<EmployeeViewModel>> GetAllEmployees()
+        {
+            var employees = await _employeeOrchestrator.GetAllEmployees();
+
+            return employees;
         }
     }
 }
