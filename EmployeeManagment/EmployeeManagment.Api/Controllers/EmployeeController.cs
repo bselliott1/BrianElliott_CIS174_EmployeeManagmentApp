@@ -56,6 +56,7 @@ namespace EmployeeManagment.Api.Controllers
             return employee;
         }
 
+        [HttpGet]
         [Route("api/v1/getAllEmployees")]
         public async Task<List<EmployeeViewModel>> GetAllEmployees()
         {

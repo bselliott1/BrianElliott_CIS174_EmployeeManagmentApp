@@ -31,7 +31,7 @@ namespace EmployeeManagment.Api.Models
         public string firstName { get; set; }
         public string middleName { get; set; }
         public string lastName { get; set; }
-        public DateTime birthDate { get; set; }
+        public DateTime? birthDate { get; set; }
         public DateTime hireDate { get; set; }
         public string department { get; set; }
         public string jobTitle { get; set; }
